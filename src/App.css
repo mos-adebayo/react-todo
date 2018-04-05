@@ -26,3 +26,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.header {
+  background-color: #000;
+  padding-top: 15px;
+}
+.navbar {
+  background-color: #000;
+}
+.navbar-item {
+  color: white !important;
+}
+.content {
+  margin-top: 50px;
+}
