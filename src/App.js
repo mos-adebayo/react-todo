@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router ,
-            Route, Switch, Link } from 'react-router-dom';
-import logo from './logo.svg';
+import { Router ,
+            Route, Link } from 'react-router-dom';
+// import logo from './logo.svg';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -42,9 +42,7 @@ class App extends Component {
                 </header>
 
                 <section className={'content'}>
-                    <switch>
-                        <Route exact path="/" component={Home}/>
-                    </switch>
+                    <Route exact path="/" component={Home}/>
                 </section>
             </div>
         </Router>

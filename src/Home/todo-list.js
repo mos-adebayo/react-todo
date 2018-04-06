@@ -1,14 +1,22 @@
 import React from 'react';
-import {
-    Form, FormGroup, Label, Row, Input, Button
+import { Row, Col, Container,
 } from 'reactstrap';
+import TodoListItem from "./todo-list-item";
 
-const TodoPanel = ({taskEntered, onTaskEntered, onTaskSubmit}) => {
+const TodoList = ({tasks}) => {
     return (
-        <Form onSubmit={onTaskSubmit}>
-            <Input className="mb-2" value={taskEntered} type="text" placeholder="What's your task?" onChange={onTaskEntered}/>
-        </Form>
+        <Container>
+            <Row>
+                {tasks.map((task, key) =>
+                    <Col sm={4}>
+                        <div className="card card-block">
+                            <TodoListItem task={task} key={key}/>
+                        </div>
+                    </Col>
+                )}
+            </Row>
+        </Container>
     )
 };
 
-export default TodoPanel;
+export default TodoList;

@@ -9,7 +9,8 @@ class Home extends Component {
         super(props);
         this.state = {
             currentTask: '',
-            tasks: []
+            tasks: [],
+            allTasks: [],
         };
     }
     processTaskEntered = (task_) => {
@@ -21,18 +22,28 @@ class Home extends Component {
         this.setState({tasks: [currentTask, ...tasks ]});
         this.resetForm();
     };
+    saveTaskEntered = (event) => {
+        event.preventDefault();
+        const {  tasks, allTasks } = this.state;
+        this.setState({allTasks: [tasks, ...allTasks ], tasks: []});
+        // this.resetForm();
+    };
     resetForm = () => {
       this.setState({currentTask: ''});
     };
     render () {
-        const { currentTask, tasks } = this.state;
+        const { currentTask, tasks, allTasks } = this.state;
         return (
             <div className="container">
                 <section className="section">
                     <div className="container">
-                        <TodoPanel taskEntered={currentTask} onTaskEntered={this.processTaskEntered} onTaskSubmit={this.processTaskSubmit}/>
+                        <TodoPanel taskEntered={currentTask} onTaskEntered={this.processTaskEntered} onTaskSubmit={this.processTaskSubmit} onSaveTask={this.saveTaskEntered}/>
 
-                        <TodoList tasks={tasks}/>
+                        <p className="small ml-3">
+                            { tasks.join(', ') }
+                        </p>
+
+                        <TodoList tasks={allTasks}/>
                     </div>
                 </section>
             </div>
