@@ -3,6 +3,7 @@ import { BrowserRouter as Router ,
             Route, Switch, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 //Import App Components
 import Home from './Home/Home';
